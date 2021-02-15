@@ -25,11 +25,25 @@ We will also create, publish, and consume a pipeline.
 *TODO*: Provide an architectual diagram of the project and give an introduction of each step. An architectural diagram is an image that helps visualize the flow of operations from start to finish. In this case, it has to be related to the completed project, with its various stages that are critical to the overall flow. For example, one stage for managing models could be "using Automated ML to determine the best model". 
 
 ## Key Steps
-1. **Data Preparation**: When autoML run is created, *Bank-Marketing* data is uploaded and registered so that we can use it in our experiments.
+1. **Data Preparation**: When AutoML run is created, *Bank-Marketing* data is uploaded and registered so that we can use it in our experiments.
 ![imgdatareg](img/AutoML-RegData.png)    
 
 <!-- <img src="img/AutoML-RegData.png" width="800" height="250" /> -->
+2. **Experiment Run**: AutoML experiment correctly run and submitted.
+![imgexprun](img/AutoML-ExpRun.png)
 
+3. **Best Model**: The best performing model is the one using *VotingEnsemble*.
+As it was mentioned in **ML-Pipeline** project, due to the high target unbalancement, we're going to focus on *macro* metrics.
+![imgexprunrrank](img/AutoML-Runs.png)
+![imgbestperfmod](img/BestModelPerf.png)
+
+4. **Deploy Model**: Create an endpoint associated to an ACI.
+![imgmoddep](img/AutoML-Deployed.png)  
+
+5. **Activate Application Insights**:
+   1. Check out *az* extension is installed with `az version` and `az extension add -n azure-cli-ml`.
+   2. Create a python virtual environment with `virtualenv venv`.
+   3. 
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
 
