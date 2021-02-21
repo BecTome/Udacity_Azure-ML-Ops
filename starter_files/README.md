@@ -50,6 +50,33 @@ As it was mentioned in **ML-Pipeline** project, due to the high target unbalance
    ![appinsenab](img/appins_enabled.png)
    ![appinswork](img/mlappins.png)
 
+6. **Display Swagger Documentation**
+   1. Download swagger.json from *Details* tab inside the endpoint.
+   2. Change port from recommended `80` to `9000` in `swagger.sh` because 80 is
+      not available and run it to start the `swagger-ui` docker container. Now it 
+      is displayed in `http://localhost:9000/`.
+   3. Run server.py in 8000 port
+   4. Check `http://localhost:8000/swagger.json` in `Swagger`.
+      ![swagger](img/swagger.png)
+
+7. **Consume Endpoint and benchmarking**
+   1. Edit *endpoint.py* with the URL and the key necessary to authorize the HTTP
+      request. Some data in a json format is used to make the request and see
+      what the best model predicts from it.
+      ![endpoint_script](img/endpoint_script.png)
+      ![endpoint_call](img/endpoint_call.png)
+   2. Now we want to know the average time necessary to receiver our responses.
+      For that we use **Apache Benchmark**. First of all we check that it is
+      installed displaying the help `ab -h`. Once we see that it works, 
+      Authorization key and URI can be introduced into *benchmark.sh* and run 
+      the script.
+      ![apache_script](img/benchmark_script.png)
+      ![apache_out](img/benchmark_out.png)
+      
+      We can see that, calling 10 times the API with a *data.json* POST (the 
+      same used for testing the endpoint) we see that all of them are done 
+      without issues in 226 ms in average. This is a very acceptable responsing 
+      time.
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
 
