@@ -43,7 +43,13 @@ As it was mentioned in **ML-Pipeline** project, due to the high target unbalance
 5. **Activate Application Insights**:
    1. Check out *az* extension is installed with `az version` and `az extension add -n azure-cli-ml`.
    2. Create a python virtual environment with `virtualenv venv`.
-   3. 
+   3. Edit and run `logs.py` writing the endpoint name (`demo-model-deploy` in 
+      this case) and check output in console:
+   ![appins](img/logs_activ.png)    
+   4. Check that **Application Insights** is enabled and wotking:
+   ![appinsenab](img/appins_enabled.png)
+   ![appinswork](img/mlappins.png)
+
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
 
