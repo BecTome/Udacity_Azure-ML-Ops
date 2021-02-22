@@ -77,6 +77,10 @@ As it was mentioned in **ML-Pipeline** project, due to the high target unbalance
       same used for testing the endpoint) we see that all of them are done 
       without issues in 226 ms in average. This is a very acceptable responsing 
       time.
+
+8. **Create, Publish and Consume a Pipeline**
+
+
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
 
