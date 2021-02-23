@@ -22,7 +22,23 @@ We will also create, publish, and consume a pipeline.
 
 
 ## Architectural Diagram
-*TODO*: Provide an architectual diagram of the project and give an introduction of each step. An architectural diagram is an image that helps visualize the flow of operations from start to finish. In this case, it has to be related to the completed project, with its various stages that are critical to the overall flow. For example, one stage for managing models could be "using Automated ML to determine the best model". 
+
+In this project, we explain briefly how to publish your best AutoML model and deploy it as a Web API.
+
+- **Experiment Run**: Using MLStudio we manually upload data, select the compute 
+  target and the task we want to accomplish
+- **Best Model Selection**: Comparing all the models, finally we choose the one with better primary metric, in this case, weighted AUC, according to the target unbalance.
+- **Model Deployment**: The best model is deployed as an endpoint.
+- **Application Insights Activation**: We enable this logs monitoring tool.
+- **Display Swagger Documentation**: We make use of the *swagger.json* file
+ given by Azure to visualize documentation in a more clear and professional way.
+- **Consume Endpoint**: We do a test and a benchmark to check out that the 
+endpoint works and to better know latency times.
+- **Create, Publish and Consume a Pipeline using Python SDK**: In the top of 
+Automation we have the pipelines. Processing data and retraining only with an
+HTTP request is possible.
+
+![architecture](img/architecture.png)
 
 ## Key Steps
 1. **Data Preparation**: When AutoML run is created, *Bank-Marketing* data is uploaded and registered so that we can use it in our experiments.
@@ -38,6 +54,7 @@ As it was mentioned in **ML-Pipeline** project, due to the high target unbalance
 ![imgbestperfmod](img/BestModelPerf.png)
 
 4. **Deploy Model**: Create an endpoint associated to an ACI.
+
 ![imgmoddep](img/AutoML-Deployed.png)  
 
 5. **Activate Application Insights**:
@@ -46,7 +63,7 @@ As it was mentioned in **ML-Pipeline** project, due to the high target unbalance
    3. Edit and run `logs.py` writing the endpoint name (`demo-model-deploy` in 
       this case) and check output in console:
    ![appins](img/logs_activ.png)    
-   4. Check that **Application Insights** is enabled and wotking:
+   1. Check that **Application Insights** is enabled and wotking:
    ![appinsenab](img/appins_enabled.png)
    ![appinswork](img/mlappins.png)
 
@@ -79,10 +96,24 @@ As it was mentioned in **ML-Pipeline** project, due to the high target unbalance
       time.
 
 8. **Create, Publish and Consume a Pipeline**
-
+   1. Upload the Jupyter Notebook that contains the process of the Pipeline creation
+      and change the experiment name so that it's the same used for AutoML.
+   2. Upload the `config.json` with the info about the workspace.
+   3. Run the AutoML step and publish the Pipeline so that we can find it in
+      MLStudio Pipelines section.
+   4. Publish it using the recently created Pipeline Run (with run id).
+   5. Authenticate using interactive login and make a POST request with the 
+      new experiment name so that a new Pipeline run is executed. 
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
+Clicking on the following picture you can watch a **5 minutes video** with 
+explanations about the content of the project.
+
+[<img src="img/AzureAI.png">](https://youtu.be/NDL4-IqeMsU)
 
 ## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+
+For future work, I would suggest making further tweaks to the AutoML step of the pipeline. There are a lot of settings involved and making changes to them could improve the search space and help find an even better model solution. There are also additional steps that could be added to the pipeline, perhaps doing some dataset cleanup or feature engineering before the AutoML step, or doing additional steps after the AutoML step has completed.
+
+In addition, I propose connecting Application Insights to our Pipeline API and 
+Scheduling periodical runs or each time Banking Dataset updates (trigger). 
