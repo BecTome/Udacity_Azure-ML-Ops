@@ -1,5 +1,20 @@
 # Operationalizing Machine Learning
-
+- [Operationalizing Machine Learning](#operationalizing-machine-learning)
+  - [Overview](#overview)
+  - [Architectural Diagram](#architectural-diagram)
+  - [Key Steps](#key-steps)
+    - [**1. Data Preparation**: When AutoML run is created, *Bank-Marketing* data is uploaded and registered so that we can use it in our experiments.](#1-data-preparation-when-automl-run-is-created-bank-marketing-data-is-uploaded-and-registered-so-that-we-can-use-it-in-our-experiments)
+    - [**2. Experiment Run**: AutoML experiment correctly run and submitted.](#2-experiment-run-automl-experiment-correctly-run-and-submitted)
+    - [**3. Best Model**: The best performing model is the one using *VotingEnsemble*.](#3-best-model-the-best-performing-model-is-the-one-using-votingensemble)
+    - [**4. Deploy Model**: Create an endpoint associated to an ACI.](#4-deploy-model-create-an-endpoint-associated-to-an-aci)
+      - [**4.1. Activate Application Insights**:](#41-activate-application-insights)
+    - [**5. Display Swagger Documentation**](#5-display-swagger-documentation)
+    - [**6. Consume Endpoint and benchmarking**](#6-consume-endpoint-and-benchmarking)
+    - [**7. Create, Publish and Consume a Pipeline**](#7-create-publish-and-consume-a-pipeline)
+      - [**Introduction to Pipelines**](#introduction-to-pipelines)
+      - [**Process**](#process)
+  - [Screen Recording](#screen-recording)
+  - [Standout Suggestions](#standout-suggestions)
 ## Overview
 This project is part of the Udacity Azure ML Nanodegree.
 
